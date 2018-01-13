@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2017
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Genossis.Plugins", "Genossis.Plugins.csproj", "{04B123ED-BDC6-290C-2A8C-38FD2D15CAED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Genossis", "Genossis.csproj", "{631CCD1B-CD32-4566-A14F-27978B1657D8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Genossis.Editor.Plugins", "Genossis.Editor.Plugins.csproj", "{1BC9F264-26BD-5131-CF33-05071FDBA774}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{04B123ED-BDC6-290C-2A8C-38FD2D15CAED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04B123ED-BDC6-290C-2A8C-38FD2D15CAED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04B123ED-BDC6-290C-2A8C-38FD2D15CAED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04B123ED-BDC6-290C-2A8C-38FD2D15CAED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{631CCD1B-CD32-4566-A14F-27978B1657D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{631CCD1B-CD32-4566-A14F-27978B1657D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{631CCD1B-CD32-4566-A14F-27978B1657D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{631CCD1B-CD32-4566-A14F-27978B1657D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1BC9F264-26BD-5131-CF33-05071FDBA774}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1BC9F264-26BD-5131-CF33-05071FDBA774}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1BC9F264-26BD-5131-CF33-05071FDBA774}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1BC9F264-26BD-5131-CF33-05071FDBA774}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

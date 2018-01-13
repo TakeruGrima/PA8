@@ -1,0 +1,4 @@
+sceneSetups:
+- path: C:/Users/Public/Documents/Unity Projects/ViewMJ/Assets/test.unity
+  isLoaded: 1
+  isActive: 1

@@ -1,0 +1,45 @@
+Initialize engine version: 5.6.4f1 (ac7086b8d112)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 10.0]
+    Renderer: NVIDIA GeForce 210  (ID=0xa65)
+    Vendor:   NVIDIA
+    VRAM:     991 MB
+    Driver:   9.18.13.4174
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\polo\Documents\UnityPrototype-master\Genossis\Genesis_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\polo\Documents\UnityPrototype-master\Genossis\Genesis_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\polo\Documents\UnityPrototype-master\Genossis\Genesis_Data\Managed\Assembly-CSharp-firstpass.dll (this message is harmless)
+Loading C:\Users\polo\Documents\UnityPrototype-master\Genossis\Genesis_Data\Managed\Assembly-CSharp-firstpass.dll into Unity Child Domain
+Platform assembly: C:\Users\polo\Documents\UnityPrototype-master\Genossis\Genesis_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\polo\Documents\UnityPrototype-master\Genossis\Genesis_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\polo\Documents\UnityPrototype-master\Genossis\Genesis_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\polo\Documents\UnityPrototype-master\Genossis\Genesis_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\polo\Documents\UnityPrototype-master\Genossis\Genesis_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\polo\Documents\UnityPrototype-master\Genossis\Genesis_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\Users\polo\Documents\UnityPrototype-master\Genossis\Genesis_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
+Loading C:\Users\polo\Documents\UnityPrototype-master\Genossis\Genesis_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
+- Completed reload, in  0.026 seconds
+Platform assembly: C:\Users\polo\Documents\UnityPrototype-master\Genossis\Genesis_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\polo\Documents\UnityPrototype-master\Genossis\Genesis_Data\Managed\System.dll (this message is harmless)
+desktop: 1366x768 60Hz; virtual: 1366x768 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 1.199413 ms
+NetworkDiscovery set broadcast data to:NetworkManager:localhost:7777
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Setting up 1 worker threads for Enlighten.
+  Thread -> id: 22a0 -> priority: 1 
+Network layer will still work after application suspends
+ 
+(Filename:  Line: 206)
+
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 2.395304 ms
+
+Unloading 11 unused Assets to reduce memory usage. Loaded Objects now: 685.
+Total: 0.738346 ms (FindLiveObjects: 0.036821 ms CreateObjectMapping: 0.035540 ms MarkObjects: 0.392546 ms  DeleteObjects: 0.272797 ms)
+
