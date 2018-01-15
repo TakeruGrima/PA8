@@ -67,8 +67,8 @@ public class GameMasterController : NetworkBehaviour
     {
         Vector3 position;
 
-        position.x = 0;
-        position.z = 0;
+		position.x = transform.position.x;
+		position.z = transform.position.y;
         position.y = 200;
 
         camera.orthographic = true;
