@@ -8,66 +8,146 @@ using UnityStandardAssets.Utility;
 
 public class GameMasterController : NetworkBehaviour
 {
-    private Camera camera;
-    private Vector3 originalCameraPosition;
-    private MouseLook mouseLook;
-    private CurveControlledBob headBob = new CurveControlledBob();
-    private float stepInterval = 4f;
-    private float stepCycle;
-    private float nextStep;
-    private Vector2 input;
+    [SerializeField] Camera camera;
+    [SerializeField] AudioListener audioListener;
 
+    int mode = 0;//god or ghost
     public float unitPerSec = 4f;
 
-    // Use this for initialization
-    void Start()
+    List<GameObject> players;
+    int numPlayers;
+
+    private void Start()
     {
-        camera = GetComponent<Camera>();
-        originalCameraPosition = camera.transform.localPosition;
-        headBob.Setup(camera, stepInterval);
-        stepCycle = 0f;
-        nextStep = stepCycle / 2f;
-        mouseLook = new MouseLook
+        numPlayers = Network.connections.Length;
+
+        for(int i =2;i<numPlayers;i++)
         {
-            smooth = true,
-            smoothTime = 2f
-        };
-        mouseLook.Init(transform, camera.transform);
+            players.Add(GameObject.Find("Player" + i));
+        }
     }
 
-    // Update is called once per frame
     void Update()
     {
-        float speed = unitPerSec * Time.deltaTime;
-        //RotateView();
-        Vector3 translation = Vector3.zero;
+        if(numPlayers < Network.connections.Length)
+        {
+            numPlayers = Network.connections.Length;
 
-        if (Input.GetKey(KeyCode.UpArrow))//haut
-        {
-            translation.z += speed;
+            players.Add(GameObject.Find("Player" + numPlayers));
         }
-        if (Input.GetKey(KeyCode.DownArrow))//bas
+
+        if (mode == 0 && Input.GetKeyDown(KeyCode.F1))//switch to god mod
         {
-            translation.z -= speed;
+            GetComponent<CharacterController>().enabled = false;
+            GetComponent<FirstPersonController>().enabled = false;
+            GetComponent<Rigidbody>().useGravity = false;
+            audioListener.enabled = false;
+            mode = 1;
+            Debug.Log("DEACTIVATE");
+            InitialiseMJ();
         }
-        if (Input.GetKey(KeyCode.LeftArrow))//gauche
+        else if (mode == 1 && Input.GetKeyDown(KeyCode.F1))
         {
-            translation.x -= speed;
+            
+            GetComponent<CharacterController>().enabled = true;
+            GetComponent<FirstPersonController>().enabled = true;
+            GetComponent<Rigidbody>().useGravity = true;
+            audioListener.enabled = true;
+            mode = 0;
+            camera.orthographic = false;
+            Debug.Log("ACTIVATE");
+            Cursor.visible = false;
         }
-        if (Input.GetKey(KeyCode.RightArrow))//droite
-        {
-            translation.x += speed;
-        }
-        transform.Translate(translation, Space.World);
+        MovementGod();
+        ZoomGod();
+        GoToPlayer();
     }
 
-    private void FixedUpdate()
+    private void InitialiseMJ()
     {
-        mouseLook.UpdateCursorLock();
+        Vector3 position;
+
+        position.x = 0;
+        position.z = 0;
+        position.y = 200;
+
+        camera.orthographic = true;
+        camera.orthographicSize = 20;
+        camera.transform.rotation = Quaternion.Euler(90,0,0);
+
+        transform.position = position;
     }
 
-    private void RotateView()
+    private void MovementGod()
     {
-        mouseLook.LookRotation(transform, camera.transform);
+        if (mode== 1)
+        {
+            Cursor.visible = true;
+
+            Vector3 translation = Vector3.zero;
+            float speed = unitPerSec * Time.deltaTime;
+
+            if (Input.GetKey(KeyCode.UpArrow))//haut
+            {
+                translation.z += speed;
+            }
+            if (Input.GetKey(KeyCode.DownArrow))//bas
+            {
+                translation.z -= speed;
+            }
+            if (Input.GetKey(KeyCode.LeftArrow))//gauche
+            {
+                translation.x -= speed;
+            }
+            if (Input.GetKey(KeyCode.RightArrow))//droite
+            {
+                translation.x += speed;
+            }
+            transform.Translate(translation, Space.World);
+        }
+    }
+
+    public void ZoomGod()
+    {
+        if (mode == 1)
+        {
+            Cursor.visible = true;
+            float speed = unitPerSec * Time.deltaTime;
+
+            if (camera.orthographicSize > 1 
+                && Input.GetAxis("Mouse ScrollWheel") > 0)
+            {
+                camera.orthographicSize--;
+            }
+
+            if (Input.GetAxis("Mouse ScrollWheel") < 0)
+            {
+                camera.orthographicSize++;
+            }
+        }
+    }
+
+    public void GoToPlayer()
+    {
+        if(mode== 1)
+        {
+            if(Input.GetMouseButtonDown(1))
+            {
+                Vector3 position = 
+                    new Vector3(Input.mousePosition.x,Input.mousePosition.z);
+
+                foreach (GameObject player in players)
+                {
+                    if(player.transform.position.x > position.x
+                        && player.transform.position.x < position.x + 10
+                        && player.transform.position.y > position.y
+                        && player.transform.position.y < position.y + 10)
+                    {
+                        transform.position = position;
+                    }
+                }
+                transform.position = position;
+            }
+        }
     }
 }

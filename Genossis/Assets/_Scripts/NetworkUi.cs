@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Networking;
 using UnityEngine.UI;
 
 public class NetworkUi : MonoBehaviour
@@ -14,7 +13,7 @@ public class NetworkUi : MonoBehaviour
     public void HostGame()
     {
         CustomNetworkDiscovery.Instance.StartBroadcasting();
-        NetworkManager.singleton.StartHost();
+        NetworkController.singleton.StartHost();
     }
 
     public void ReceiveGameBroadcast()
@@ -24,8 +23,8 @@ public class NetworkUi : MonoBehaviour
 
     public void JoinGame()
     {
-        NetworkManager.singleton.networkAddress = ipAddressText.text;
-        NetworkManager.singleton.StartClient();
+        NetworkController.singleton.networkAddress = ipAddressText.text;
+        NetworkController.singleton.StartClient();
         CustomNetworkDiscovery.Instance.StopBroadcasting();
     }
 

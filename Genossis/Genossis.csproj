@@ -85,8 +85,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\_Scripts\CustomNetworkDiscovery.cs" />
+    <Compile Include="Assets\_Scripts\FirstViewController.cs" />
     <Compile Include="Assets\_Scripts\GameMasterController.cs" />
-    <Compile Include="Assets\_Scripts\NetworkManagerCustom.cs" />
+    <Compile Include="Assets\_Scripts\NetworkController.cs" />
     <Compile Include="Assets\_Scripts\NetworkUi.cs" />
     <Compile Include="Assets\_Scripts\PlayerID.cs" />
     <Compile Include="Assets\_Scripts\PlayerNetworkSetup.cs" />
